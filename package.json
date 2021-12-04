@@ -1,0 +1,1 @@
+{"name":"dekboard-memebox","version":"1.0.0","description":"MemeBox and stuff","main":"index.js","scripts":{"build":"deckboard-kit --build","install":"deckboard-kit --install"},"author":"Igor Ilic","license":"MIT","dependencies":{"@senstate/client":"^0.3.0","@senstate/client-connection":"^0.3.0","axios":"^0.24.0","deckboard-kit":"^0.3.0","ws":"^8.3.0"}}
