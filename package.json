@@ -1,1 +1,44 @@
-{"name":"dekboard-memebox","version":"1.0.0","description":"MemeBox and stuff","main":"index.js","scripts":{"build":"deckboard-kit --build","install":"deckboard-kit --install"},"author":"Igor Ilic","license":"MIT","dependencies":{"@senstate/client":"^0.3.0","@senstate/client-connection":"^0.3.0","axios":"^0.24.0","deckboard-kit":"^0.3.0","ws":"^8.3.0"}}
+{
+	"name": "dekboard-memebox",
+	"version": "1.0.0",
+	"description": "MemeBox and stuff",
+	"license": "MIT",
+	"author": {
+		"name": "Igor Ilic",
+		"email": "github@igorilic.net",
+		"url": "https://bio.link/igorilic"
+	},
+	"repository": {
+		"url": "https://github.com/gigili/deckboard-memebox"
+	},
+	"bugs": {
+		"url": "https://github.com/gigili/deckboard-memebox/issues",
+		"email": "github@igorilic.net"
+	},
+	"funding": [
+		{
+			"type": "Paypal",
+			"url": "https://paypal.me/igorili"
+		},
+		{
+			"type": "ko-fi",
+			"url": "https://ko-fi.com/igorilic"
+		},
+		{
+			"type": "Buy Me A Coffee",
+			"url": "https://www.buymeacoffee.com/igorilic"
+		}
+	],
+	"main": "index.js",
+	"scripts": {
+		"build": "deckboard-kit --build",
+		"install": "deckboard-kit --install"
+	},
+	"dependencies": {
+		"@senstate/client": "^0.3.0",
+		"@senstate/client-connection": "^0.3.0",
+		"axios": "^0.24.0",
+		"deckboard-kit": "^0.3.0",
+		"ws": "^8.3.0"
+	}
+}

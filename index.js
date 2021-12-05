@@ -2,8 +2,6 @@ const {Extension, log, INPUT_METHOD, PLATFORMS} = require("deckboard-kit");
 const axios = require("axios");
 const WebSocket = require("ws");
 
-let memeboxWS = null;
-
 class MemeBox extends Extension {
 	constructor(props) {
 		super(props);
@@ -72,8 +70,8 @@ class MemeBox extends Extension {
 	}
 
 	async getMemeboxMedia() {
-		const {memeboxAddress, memeboxPort} = this.configs;
 		try {
+			const {memeboxAddress, memeboxPort} = this.configs;
 			const result = await axios.get(`http://${memeboxAddress.value}:${memeboxPort.value}/api/clips`, {
 				headers: {
 					"Accept": "application/json"
