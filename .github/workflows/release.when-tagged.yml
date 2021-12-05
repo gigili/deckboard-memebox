@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - run: npm build
+    - run: npm run build
     - name: Create Release
       uses: actions/create-release@v1
       id: create_release
