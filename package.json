@@ -32,7 +32,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "deckboard-kit --build",
-		"install": "deckboard-kit --install"
+		"dev-install": "deckboard-kit --install"
 	},
 	"dependencies": {
 		"axios": "^0.24.0",
