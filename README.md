@@ -1,6 +1,6 @@
 # Deckboard Memebox
 
-[Deckboard](https://deckboard.app/) extension for adding [Memebox](https://github.com/negua/memebox) triggers
+[Deckboard](https://deckboard.app/) extension for adding [Memebox](https://github.com/negue/meme-box) triggers
 
 # Setup
 
