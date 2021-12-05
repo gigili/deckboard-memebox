@@ -31,12 +31,15 @@
 	],
 	"main": "index.js",
 	"scripts": {
-		"build": "deckboard-kit --build",
-		"dev-install": "deckboard-kit --install"
+		"build": "./node_modules/.bin/deckboard-kit --build",
+		"dev-install": "./node_modules/.bin/deckboard-kit --install"
 	},
 	"dependencies": {
 		"axios": "^0.24.0",
 		"deckboard-kit": "^0.3.0",
 		"ws": "^8.3.0"
+	},
+	"devDependencies": {
+		"deckboard-kit-cli": "^1.0.0"
 	}
 }
