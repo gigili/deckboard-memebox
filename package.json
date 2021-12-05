@@ -35,8 +35,6 @@
 		"install": "deckboard-kit --install"
 	},
 	"dependencies": {
-		"@senstate/client": "^0.3.0",
-		"@senstate/client-connection": "^0.3.0",
 		"axios": "^0.24.0",
 		"deckboard-kit": "^0.3.0",
 		"ws": "^8.3.0"

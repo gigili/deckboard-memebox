@@ -1,4 +1,4 @@
-const {Extension, log, INPUT_METHOD, PLATFORMS} = require("deckboard-kit");
+const {Extension, PLATFORMS} = require("deckboard-kit");
 const axios = require("axios");
 const WebSocket = require("ws");
 
