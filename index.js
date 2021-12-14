@@ -1,4 +1,4 @@
-const {Extension, PLATFORMS} = require("deckboard-kit");
+const {Extension, PLATFORMS, INPUT_METHOD} = require("deckboard-kit");
 const axios = require("axios");
 const WebSocket = require("ws");
 
@@ -17,14 +17,14 @@ class MemeBox extends Extension {
 				type: "text",
 				name: "Memebox address",
 				descriptions: "Example: 127.0.0.1",
-				value: ""
+				value: "",
 			},
 			memeboxPort: {
 				type: "text",
 				name: "Memebox port",
 				descriptions: "Example: 6363",
-				value: ""
-			}
+				value: "",
+			},
 		};
 
 		this.inputs = [
@@ -38,10 +38,15 @@ class MemeBox extends Extension {
 					{
 						label: "Media to trigger",
 						ref: "mediaID",
-						type: "input:autocomplete"
-					}
-				]
-			}
+						type: "input:autocomplete",
+					},
+					{
+						label: "Arguments (Optional)",
+						ref: "memeboxArgs",
+						type: INPUT_METHOD.INPUT_TEXTAREA,
+					},
+				],
+			},
 		];
 
 		this.initExtension();
@@ -54,8 +59,8 @@ class MemeBox extends Extension {
 	get selections() {
 		return [
 			{
-				header: this.name
-			}, ...this.inputs
+				header: this.name,
+			}, ...this.inputs,
 		];
 	}
 
@@ -72,28 +77,35 @@ class MemeBox extends Extension {
 	async getMemeboxMedia() {
 		try {
 			const {memeboxAddress, memeboxPort} = this.configs;
+
+			if (!memeboxAddress.value) {
+				throw new Error("Missing Memebox configuration. Check your extension configuration screen.");
+			}
+
 			const result = await axios.get(`http://${memeboxAddress.value}:${memeboxPort.value}/api/clips`, {
 				headers: {
-					"Accept": "application/json"
-				}
+					"Accept": "application/json",
+				},
 			});
+
 			const data = result.data;
+			//if (!data) return [];
 
 			return data.map((media) => {
 				return {
 					value: media.id,
-					label: media.name
+					label: media.name,
 				};
 			});
 		} catch (e) {
 			return {
 				value: "-999",
-				label: e.message
+				label: e.message,
 			};
 		}
 	}
 
-	triggerMemeboxMedia(mediaID) {
+	triggerMemeboxMedia(mediaID, memeboxArgs) {
 		const triggerObj = {
 			id: mediaID,
 			repeatX: 0,
@@ -112,15 +124,15 @@ class MemeBox extends Extension {
 	execute(action, params) {
 		switch (action) {
 			case "memebox-trigger":
-				const {mediaID} = params;
+				const {mediaID, memeboxArgs} = params;
 				if (this.memeboxWS == null) {
 					const {memeboxAddress, memeboxPort} = this.configs;
 					this.memeboxWS = new WebSocket(`ws://${memeboxAddress.value}:${memeboxPort.value}`);
 					this.memeboxWS.on("open", () => {
-						this.triggerMemeboxMedia(mediaID);
+						this.triggerMemeboxMedia(mediaID, memeboxArgs);
 					});
 				} else {
-					this.triggerMemeboxMedia(mediaID);
+					this.triggerMemeboxMedia(mediaID, memeboxArgs);
 				}
 				break;
 		}
