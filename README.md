@@ -20,9 +20,11 @@
 
 * Clone the repository to your pc
 * cd into your cloned repository folder
+* Run `npm install` command
 * Run `npm run dev-install` command
+  * This will build the `.asar` file and place it in your extensions folder
 
-### Requirement
+### Requirements
 
 * Node & npm
 
@@ -35,8 +37,3 @@
 ### Notes
 
 This extension **SHOULD** run on Windows, Mac & Linux but has only been tested on Windows so far.
-
-# Author
-
-* [Igor Ilić](https://bio.link/igorilic)
-
