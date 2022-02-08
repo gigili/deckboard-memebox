@@ -38,7 +38,7 @@
 		"axios": "^0.25.0",
 		"deckboard-kit": "^0.3.0",
 		"jsonic": "^1.0.1",
-		"ws": "^8.4.2"
+		"ws": "^8.5.0"
 	},
 	"devDependencies": {
 		"deckboard-kit-cli": "^1.0.0"
