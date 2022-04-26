@@ -35,7 +35,7 @@
 		"dev-install": "./node_modules/.bin/deckboard-kit --install"
 	},
 	"dependencies": {
-		"axios": "^0.26.1",
+		"axios": "^0.27.0",
 		"deckboard-kit": "^0.3.0",
 		"jsonic": "^1.0.1",
 		"ws": "^8.5.0"
